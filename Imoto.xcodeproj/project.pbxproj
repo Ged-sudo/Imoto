@@ -15,6 +15,11 @@
 		993383EB27D91D99009990BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993383E927D91D99009990BA /* Main.storyboard */; };
 		993383ED27D91D9F009990BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 993383EC27D91D9F009990BA /* Assets.xcassets */; };
 		993383F027D91D9F009990BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993383EE27D91D9F009990BA /* LaunchScreen.storyboard */; };
+		993383F927D91E27009990BA /* MainMenue.sks in Resources */ = {isa = PBXBuildFile; fileRef = 993383F827D91E27009990BA /* MainMenue.sks */; };
+		993383FD27D92264009990BA /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993383FC27D92264009990BA /* MainMenu.swift */; };
+		9933840127D93F31009990BA /* eat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9933840027D93F31009990BA /* eat.mp3 */; };
+		9933840327DA4442009990BA /* LouseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9933840227DA4442009990BA /* LouseScene.sks */; };
+		9933840527DA4456009990BA /* LooseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9933840427DA4456009990BA /* LooseScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		993383EA27D91D99009990BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		993383EC27D91D9F009990BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		993383EF27D91D9F009990BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		993383F827D91E27009990BA /* MainMenue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenue.sks; sourceTree = "<group>"; };
+		993383FC27D92264009990BA /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		9933840027D93F31009990BA /* eat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eat.mp3; sourceTree = "<group>"; };
+		9933840227DA4442009990BA /* LouseScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LouseScene.sks; sourceTree = "<group>"; };
+		9933840427DA4456009990BA /* LooseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooseScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +70,18 @@
 			isa = PBXGroup;
 			children = (
 				993383DF27D91D99009990BA /* AppDelegate.swift */,
+				9933840427DA4456009990BA /* LooseScene.swift */,
 				993383E127D91D99009990BA /* GameScene.sks */,
+				993383FC27D92264009990BA /* MainMenu.swift */,
+				993383F827D91E27009990BA /* MainMenue.sks */,
 				993383E327D91D99009990BA /* Actions.sks */,
 				993383E527D91D99009990BA /* GameScene.swift */,
 				993383E727D91D99009990BA /* GameViewController.swift */,
 				993383E927D91D99009990BA /* Main.storyboard */,
 				993383EC27D91D9F009990BA /* Assets.xcassets */,
 				993383EE27D91D9F009990BA /* LaunchScreen.storyboard */,
+				9933840027D93F31009990BA /* eat.mp3 */,
+				9933840227DA4442009990BA /* LouseScene.sks */,
 			);
 			path = Imoto;
 			sourceTree = "<group>";
@@ -132,6 +147,9 @@
 				993383EB27D91D99009990BA /* Main.storyboard in Resources */,
 				993383E227D91D99009990BA /* GameScene.sks in Resources */,
 				993383ED27D91D9F009990BA /* Assets.xcassets in Resources */,
+				9933840327DA4442009990BA /* LouseScene.sks in Resources */,
+				9933840127D93F31009990BA /* eat.mp3 in Resources */,
+				993383F927D91E27009990BA /* MainMenue.sks in Resources */,
 				993383F027D91D9F009990BA /* LaunchScreen.storyboard in Resources */,
 				993383E427D91D99009990BA /* Actions.sks in Resources */,
 			);
@@ -145,8 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				993383E627D91D99009990BA /* GameScene.swift in Sources */,
+				9933840527DA4456009990BA /* LooseScene.swift in Sources */,
 				993383E827D91D99009990BA /* GameViewController.swift in Sources */,
 				993383E027D91D99009990BA /* AppDelegate.swift in Sources */,
+				993383FD27D92264009990BA /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,9 +1,3 @@
-//
-//  GameViewController.swift
-//  Imoto
-//
-//  Created by Евгений Андронов on 09.03.2022.
-//
 
 import UIKit
 import SpriteKit
@@ -16,7 +10,7 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
+            if let scene = SKScene(fileNamed: "MainMenue") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 
