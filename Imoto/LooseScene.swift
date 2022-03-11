@@ -15,6 +15,16 @@ class LooseScene: SKScene {
         endGameLabel = SKLabelNode(text: "Вы не уследили за милашкой(")
         endGameLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height * 0.75 )
         self.addChild(endGameLabel)
+        
+        // var deltaTime = timeNow - UserDefaults.standard.double(forKey: "lastTimeDo")
+        // var hungry: Int = UserDefaults.standard.integer(forKey: "hungry")
+        // var attantion: Int = UserDefaults.standard.integer(forKey: "attantion")
+        // var angry: Int = UserDefaults.standard.integer(forKey: "angry")
+        
+        UserDefaults.standard.set(25.0, forKey: "hungry")
+        UserDefaults.standard.set(25.0, forKey: "attantion")
+        UserDefaults.standard.set(0.0, forKey: "angry")
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

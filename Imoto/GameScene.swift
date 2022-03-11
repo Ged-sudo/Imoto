@@ -24,6 +24,7 @@ class GameScene: SKScene {
     var voiceButton: SKSpriteNode!
     var eatButton: SKSpriteNode!
     var kawaiButton: SKSpriteNode!
+    var backImg: SKSpriteNode!
     
     var flagKawai: Bool = true
     var canKawai: Timer!
@@ -51,49 +52,57 @@ class GameScene: SKScene {
        // ------------------------------------------------------------------------
         
         
-        happyLabel = SKLabelNode(text: "Уровень счатья: \(hungry + attantion - angry)")
+        happyLabel = SKLabelNode(text: "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))")
         happyLabel.position = CGPoint(x: self.frame.width / 2, y: 0.87 * self.frame.height)
+        happyLabel.fontName = "Blood"
         self.addChild(happyLabel)
         
         persImage = SKSpriteNode(imageNamed: "animeGirl")
         persImage.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height / 3.5)
-        persImage.setScale(2)
+        persImage.setScale(0.75)
         self.addChild(persImage)
         
+        backImg = SKSpriteNode(imageNamed: "backImg")
+        backImg.position = CGPoint(x: self.frame.width , y: self.frame.height / 2)
+        backImg.zPosition = -10
+        backImg.setScale(1.15)
+        self.addChild(backImg)
+        
+        
         messagePers = SKLabelNode(text: "Привет!")
-        messagePers.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height * 0.6)
+        messagePers.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height * 0.7)
         messagePers.fontName = "Blood"
         self.addChild(messagePers)
         
         imgMess = SKSpriteNode(imageNamed: "chat")
-        imgMess.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height * 0.6)
-        imgMess.zPosition = -10
-        imgMess.setScale(0.45)
+        imgMess.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height * 0.7)
+        imgMess.zPosition = -8
+        imgMess.setScale(0.4)
         self.addChild(imgMess)
         
         hugButton = SKSpriteNode(imageNamed: "hug")
         hugButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 7 * (self.frame.height / 8))
-        hugButton.setScale(0.1)
+        hugButton.setScale(0.13)
         self.addChild(hugButton)
         
         kissButton = SKSpriteNode(imageNamed: "kiss")
         kissButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 4 * (self.frame.height / 8))
-        kissButton.setScale(0.1)
+        kissButton.setScale(0.13)
         self.addChild(kissButton)
         
         voiceButton = SKSpriteNode(imageNamed: "voiceKawai")
         voiceButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 5 * (self.frame.height / 8))
-        voiceButton.setScale(0.1)
+        voiceButton.setScale(0.13)
         self.addChild(voiceButton)
         
         eatButton = SKSpriteNode(imageNamed: "eat")
         eatButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 6 * (self.frame.height / 8))
-        eatButton.setScale(0.1)
+        eatButton.setScale(0.13)
         self.addChild(eatButton)
         
         kawaiButton = SKSpriteNode(imageNamed: "heart")
         kawaiButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 3 * (self.frame.height / 8))
-        kawaiButton.setScale(0.1)
+        kawaiButton.setScale(0.13)
         self.addChild(kawaiButton)
         
         menuButton = SKSpriteNode(imageNamed: "menu")
@@ -167,7 +176,8 @@ class GameScene: SKScene {
         if flagKawai{
             flagKawai = false
             
-            attantion += 1
+            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "attantion") + 1, forKey: "attantion")
+            
             let messageChoice = ["Как мило!","Мммм...","Хи-хи!","Няя"]
             let message = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: messageChoice) as! [String]
             messagePers.text = message[0]
@@ -196,7 +206,7 @@ class GameScene: SKScene {
             
             canKawai = Timer.scheduledTimer(timeInterval: TimeInterval(timeinterval), target: self, selector: #selector(changeFlag), userInfo: nil, repeats: false)
             
-            happyLabel.text = "Уровень счастья: \(attantion + hungry - angry)"
+            happyLabel.text = "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))"
             
         }else{
             messagePers.text = "Потоом)"
@@ -209,7 +219,8 @@ class GameScene: SKScene {
         if eatFlag{
             eatFlag = false
             
-            hungry += 5
+            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "hungry") + 2, forKey: "hungry")
+          
             let messageOppinion = ["Вкусно!","Спасибо!","Вааай!","Обкушалася.."]
             let message = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: messageOppinion) as! [String]
             messagePers.text = message[0]
@@ -225,7 +236,7 @@ class GameScene: SKScene {
             eatButton.setScale(0.1)
             self.addChild(eatButton)
             
-            happyLabel.text = "Уровень счастья: \(attantion + hungry - angry)"
+            happyLabel.text = "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))"
             
         }else{
             messagePers.text = "Я сыыытаая)"
@@ -236,7 +247,6 @@ class GameScene: SKScene {
         if voiceFlag{
             voiceFlag = false
             
-           // attantion += 1
             let messageOppinion = ["kawaiVoice1.mp3","kawaiVoice2.mp3","kawaiVoice3.mp3","kawaiVoice4.mp3"]
             let message = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: messageOppinion) as! [String]
           
@@ -252,8 +262,7 @@ class GameScene: SKScene {
             voiceButton.setScale(0.1)
             self.addChild(voiceButton)
             
-            happyLabel.text = "Уровень счастья: \(attantion + hungry - angry)"
-            
+            happyLabel.text = "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))"
         }else{
             messagePers.text = "ну ээй"
         }
@@ -265,7 +274,7 @@ class GameScene: SKScene {
             
             kissFlag = false
             
-            attantion += 4
+            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "attantion") + 4, forKey: "attantion")
             
             let nameVoice = "kissVoice.mp3"
             self.run(SKAction.playSoundFileNamed(nameVoice, waitForCompletion: false))
@@ -281,7 +290,7 @@ class GameScene: SKScene {
             kissButton.setScale(0.1)
             self.addChild(kissButton)
             
-            happyLabel.text = "Уровень счастья: \(attantion + hungry - angry)"
+            happyLabel.text = "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))"
             
         }else{
             messagePers.text = "ой, подожди"
@@ -293,8 +302,8 @@ class GameScene: SKScene {
         if hugFlag{
             hugFlag = false
             
-            attantion += 4
             
+            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "attantion") + 3, forKey: "attantion")
             let nameVoice = "hugVoice.mp3"
             self.run(SKAction.playSoundFileNamed(nameVoice, waitForCompletion: false))
             let timeinterval = 10
@@ -307,7 +316,7 @@ class GameScene: SKScene {
             hugButton.setScale(0.1)
             self.addChild(hugButton)
             
-            happyLabel.text = "Уровень счастья: \(attantion + hungry - angry)"
+            happyLabel.text = "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))"
             
         }else{
             messagePers.text = "ой, подожди"
@@ -318,8 +327,11 @@ class GameScene: SKScene {
     
     
     func figth(){
-        angry += 10
-        happyLabel.text = "Уровень счастья: \(attantion + hungry - angry)"
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "angry") + 10, forKey: "angry")
+        happyLabel.text = "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))"
+        
+        messagePers.text = "Ай! Больно!"
+        
         self.run(SKAction.playSoundFileNamed("suffer.mp3", waitForCompletion: false))
     }
     
@@ -329,11 +341,12 @@ class GameScene: SKScene {
     //---------------изменение-флагов-и-вернуть-кнопки-к-прежнему-виду----------------------------------
     
     @objc func minusHappyPoint(){
-        angry += 1
-        hungry -= 3
-        attantion -= 5
         
-        happyLabel.text = "Уровень счастья: \(attantion + hungry - angry)"
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "angry") + 1, forKey: "angry")
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "hungry") - 3, forKey: "hungry")
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "attantion") - 5, forKey: "attantion")
+        
+        happyLabel.text = "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))"
     }
     
     @objc func changeFlag(){
@@ -389,7 +402,7 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if (attantion + hungry - angry) <= 0{
+        if (UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry")) <= 0{
             let transit = SKTransition.flipVertical(withDuration: 0.5)
             let gameScene = LooseScene(size: UIScreen.main.bounds.size)
             
