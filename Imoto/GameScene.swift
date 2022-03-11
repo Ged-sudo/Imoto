@@ -355,7 +355,7 @@ class GameScene: SKScene {
         kawaiButton.removeFromParent()
         kawaiButton = SKSpriteNode(imageNamed: "heart")
         kawaiButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 3 * (self.frame.height / 8))
-        kawaiButton.setScale(0.1)
+        kawaiButton.setScale(0.13)
         self.addChild(kawaiButton)
         
     }
@@ -366,7 +366,7 @@ class GameScene: SKScene {
         eatButton.removeFromParent()
         eatButton = SKSpriteNode(imageNamed: "eat")
         eatButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 6 * (self.frame.height / 8))
-        eatButton.setScale(0.1)
+        eatButton.setScale(0.13)
         self.addChild(eatButton)
         
     }
@@ -377,7 +377,7 @@ class GameScene: SKScene {
         kissButton.removeFromParent()
         kissButton = SKSpriteNode(imageNamed: "kiss")
         kissButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 4 * (self.frame.height / 8))
-        kissButton.setScale(0.1)
+        kissButton.setScale(0.13)
         self.addChild(kissButton)
     }
     
@@ -387,7 +387,7 @@ class GameScene: SKScene {
         voiceButton.removeFromParent()
         voiceButton = SKSpriteNode(imageNamed: "voiceKawai")
         voiceButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 5 * (self.frame.height / 8))
-        voiceButton.setScale(0.1)
+        voiceButton.setScale(0.13)
         self.addChild(voiceButton)
     }
     
@@ -397,7 +397,7 @@ class GameScene: SKScene {
         hugButton.removeFromParent()
         hugButton = SKSpriteNode(imageNamed: "hug")
         hugButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 7 * (self.frame.height / 8))
-        hugButton.setScale(0.1)
+        hugButton.setScale(0.13)
         self.addChild(hugButton)
     }
     
