@@ -5,21 +5,25 @@ class LooseScene: SKScene {
     
     var endGame: SKSpriteNode!
     var endGameLabel: SKLabelNode!
+    var backgroungImg: SKSpriteNode!
     
     override func didMove(to view: SKView) {
         
-        endGame = SKSpriteNode(imageNamed: "endGameImg")
+        endGame = SKSpriteNode(imageNamed: "restartImg")
         endGame.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         self.addChild(endGame)
         
         endGameLabel = SKLabelNode(text: "Вы не уследили за милашкой(")
+        endGameLabel.fontName = "Blood"
         endGameLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height * 0.75 )
+        endGameLabel.fontSize = 35
         self.addChild(endGameLabel)
         
-        // var deltaTime = timeNow - UserDefaults.standard.double(forKey: "lastTimeDo")
-        // var hungry: Int = UserDefaults.standard.integer(forKey: "hungry")
-        // var attantion: Int = UserDefaults.standard.integer(forKey: "attantion")
-        // var angry: Int = UserDefaults.standard.integer(forKey: "angry")
+        backgroungImg = SKSpriteNode(imageNamed: "backImg")
+        backgroungImg.position = CGPoint(x: self.frame.width , y: self.frame.height / 2)
+        backgroungImg.zPosition = -10
+        backgroungImg.setScale(1.8)
+        self.addChild(backgroungImg)
         
         UserDefaults.standard.set(25.0, forKey: "hungry")
         UserDefaults.standard.set(25.0, forKey: "attantion")
