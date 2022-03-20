@@ -42,7 +42,6 @@ class MainMenu: SKScene {
             if startButton.contains(location) {
                 let transit = SKTransition.flipVertical(withDuration: 0.5)
                 let gameScene = GameScene(size: UIScreen.main.bounds.size)
-                //print("aijkfbndsbjdkfnvfdjnskjfdnskcmjfcdkmsljfcdkmsljfdnkcmsla;,,kdjfbhdnkcmlkweoifjdnemklkfoijhfnkmeldwoifjnfrekmlodfdijnrekm")
                 self.view?.presentScene(gameScene, transition: transit)
             }
         }

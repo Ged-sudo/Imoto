@@ -11,12 +11,13 @@ class LooseScene: SKScene {
         
         endGame = SKSpriteNode(imageNamed: "restartImg")
         endGame.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
+        endGame.setScale(0.6)
         self.addChild(endGame)
         
-        endGameLabel = SKLabelNode(text: "Вы не уследили за милашкой(")
+        endGameLabel = SKLabelNode(text: "Очки счастья ниже нуля.")
         endGameLabel.fontName = "Blood"
         endGameLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height * 0.75 )
-        endGameLabel.fontSize = 35
+        endGameLabel.fontSize = 40
         self.addChild(endGameLabel)
         
         backgroungImg = SKSpriteNode(imageNamed: "backImg")
@@ -29,6 +30,11 @@ class LooseScene: SKScene {
         UserDefaults.standard.set(25.0, forKey: "attantion")
         UserDefaults.standard.set(0.0, forKey: "angry")
         
+        print("--------LOOSE------------")
+        print(UserDefaults.standard.integer(forKey: "attantion"))
+        print(UserDefaults.standard.integer(forKey: "hungry"))
+        print(UserDefaults.standard.integer(forKey: "angry"))
+        print("--------LOOSE------------")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

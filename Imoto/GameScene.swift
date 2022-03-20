@@ -39,15 +39,23 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        let timeinterval = 60.0 * 45
+        let timeinterval = 60.0 * 60.0
         let timeNow: Double = Double(NSDate().timeIntervalSince1970)
         var deltaTime = timeNow - UserDefaults.standard.double(forKey: "lastTimeDo")
         deltaTime = (deltaTime / timeinterval) / 3600 / 24 / 365
+        if UserDefaults.standard.integer(forKey: "attantion") != 25 && UserDefaults.standard.integer(forKey: "hungry") != 25 && UserDefaults.standard.integer(forKey: "angry") != 0{
+            UserDefaults.standard.set(UserDefaults.standard.integer(forKey:"angry") + Int(deltaTime), forKey: "angry")
+            UserDefaults.standard.set(UserDefaults.standard.double(forKey:"hungry") - (3 * Double(deltaTime)), forKey: "hungry")
+            UserDefaults.standard.set(UserDefaults.standard.double(forKey:"attantion") - (5 * Double(deltaTime)), forKey: "attantion")
+        }
         
-        angry = angry + Int(deltaTime)
-        hungry = hungry - (3 * Int(deltaTime))
-        attantion = attantion - (5 * Int(deltaTime))
-        
+        print("Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))")
+        print("--------Game------------")
+        print(UserDefaults.standard.integer(forKey: "attantion"))
+        print(UserDefaults.standard.integer(forKey: "hungry"))
+        print(UserDefaults.standard.integer(forKey: "angry"))
+        print(deltaTime)
+        print("--------Game------------")
         
        // ------------------------------------------------------------------------
         
@@ -309,6 +317,9 @@ class GameScene: SKScene {
             let timeinterval = 10
             hugTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timeinterval), target: self,selector: #selector(changeHugFlag), userInfo: nil, repeats: false)
             
+            persImage.removeFromParent()
+            persImage = SKSpriteNode(imageNamed: "")
+            
             hugButton.removeFromParent()
             
             hugButton = SKSpriteNode(imageNamed: "hugImgTouched")
@@ -347,10 +358,45 @@ class GameScene: SKScene {
         UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "attantion") - 5, forKey: "attantion")
         
         happyLabel.text = "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))"
+        
+        print("--------Game------------")
+        print(UserDefaults.standard.integer(forKey: "attantion"))
+        print(UserDefaults.standard.integer(forKey: "hungry"))
+        print(UserDefaults.standard.integer(forKey: "angry"))
+        //print(deltaTime)
+        print("--------Game------------")
+    }
+    
+    func setImageGirl(){
+        var nameImageGirl = "animeGirl"
+        
+        persImage.removeFromParent()
+        
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 100{
+        nameImageGirl = "animeGirl"
+        }
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 150 && 100 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+        nameImageGirl = "animeGirl2"
+        }
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 200 && 150 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+        nameImageGirl = "animeGirl3"
+        }
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 250 && 200 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+        nameImageGirl = "animeGirl4"
+        }
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 300 && 250 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+        nameImageGirl = "animeGirl5"
+        }
+        persImage = SKSpriteNode(imageNamed: nameImageGirl)
+        persImage.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height / 3.5)
+        persImage.setScale(0.75)
+        self.addChild(persImage)
     }
     
     @objc func changeFlag(){
         flagKawai = true
+        
+        setImageGirl()
         
         kawaiButton.removeFromParent()
         kawaiButton = SKSpriteNode(imageNamed: "heart")
@@ -363,6 +409,8 @@ class GameScene: SKScene {
     @objc func changeEatFlag(){
         eatFlag = true
         
+        setImageGirl()
+        
         eatButton.removeFromParent()
         eatButton = SKSpriteNode(imageNamed: "eat")
         eatButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 6 * (self.frame.height / 8))
@@ -374,6 +422,8 @@ class GameScene: SKScene {
     @objc func changeKissFlag(){
         kissFlag = true
         
+        setImageGirl()
+        
         kissButton.removeFromParent()
         kissButton = SKSpriteNode(imageNamed: "kiss")
         kissButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 4 * (self.frame.height / 8))
@@ -384,6 +434,8 @@ class GameScene: SKScene {
     @objc func changeVoiceFlag(){
         voiceFlag = true
         
+        setImageGirl()
+        
         voiceButton.removeFromParent()
         voiceButton = SKSpriteNode(imageNamed: "voiceKawai")
         voiceButton.position = CGPoint(x: self.frame.width - 50, y: self.frame.height - 5 * (self.frame.height / 8))
@@ -393,6 +445,8 @@ class GameScene: SKScene {
     
     @objc func changeHugFlag(){
         hugFlag = true
+        
+        setImageGirl()
         
         hugButton.removeFromParent()
         hugButton = SKSpriteNode(imageNamed: "hug")
