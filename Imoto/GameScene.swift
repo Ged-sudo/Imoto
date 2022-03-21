@@ -202,6 +202,31 @@ class GameScene: SKScene {
                 self.run(SKAction.playSoundFileNamed("NyaaVoice.mp3", waitForCompletion: false))
             }
             
+            var nameImageGirl = "kawai1"
+            
+            persImage.removeFromParent()
+            
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 100{
+            nameImageGirl = "kawai1"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 150 && 100 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "kawai2"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 200 && 150 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "kawai3"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 250 && 200 < (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "kawai4"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 300 && 250 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "kawai5"
+            }
+            persImage = SKSpriteNode(imageNamed: nameImageGirl)
+            persImage.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height / 3.5)
+            persImage.setScale(0.75)
+            self.addChild(persImage)
+            
+            
             kawaiButton.removeFromParent()
             
             kawaiButton = SKSpriteNode(imageNamed: "heartImgTouched")
@@ -237,6 +262,30 @@ class GameScene: SKScene {
             let timeinterval = 10
             eatTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timeinterval), target: self,selector: #selector(changeEatFlag), userInfo: nil, repeats: false)
             
+            var nameImageGirl = "eat1"
+            
+            persImage.removeFromParent()
+            
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 100{
+            nameImageGirl = "eat1"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 150 && 100 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "eat2"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") <= 200 && 150 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "eat3"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 250 && 200 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "eat4"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 300 && 250 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "eat5"
+            }
+            persImage = SKSpriteNode(imageNamed: nameImageGirl)
+            persImage.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height / 3.5)
+            persImage.setScale(0.75)
+            self.addChild(persImage)
+            
             eatButton.removeFromParent()
             
             eatButton = SKSpriteNode(imageNamed: "eatImgTouched")
@@ -263,6 +312,8 @@ class GameScene: SKScene {
             let timeinterval = 3
             voiceTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timeinterval), target: self,selector: #selector(changeVoiceFlag), userInfo: nil, repeats: false)
             
+            
+            
             voiceButton.removeFromParent()
             
             voiceButton = SKSpriteNode(imageNamed: "voiceImgTouched")
@@ -287,9 +338,33 @@ class GameScene: SKScene {
             let nameVoice = "kissVoice.mp3"
             self.run(SKAction.playSoundFileNamed(nameVoice, waitForCompletion: false))
             let timeinterval = 10
-            eatTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timeinterval), target: self,selector: #selector(changeKissFlag), userInfo: nil, repeats: false)
+            kissTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timeinterval), target: self,selector: #selector(changeKissFlag), userInfo: nil, repeats: false)
             
             messagePers.text = "Тьмок <3"
+            
+            var nameImageGirl = "kiss1"
+            
+            persImage.removeFromParent()
+            
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 100{
+            nameImageGirl = "kiss1"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 150 && 100 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "kiss2"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 200 && 150 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "kiss3"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 250 && 200 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "kiss4"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 300 && 250 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "kiss5"
+            }
+            persImage = SKSpriteNode(imageNamed: nameImageGirl)
+            persImage.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height / 3.5)
+            persImage.setScale(0.75)
+            self.addChild(persImage)
             
             kissButton.removeFromParent()
             
@@ -317,8 +392,31 @@ class GameScene: SKScene {
             let timeinterval = 10
             hugTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timeinterval), target: self,selector: #selector(changeHugFlag), userInfo: nil, repeats: false)
             
+            var nameImageGirl = "hug1"
+            
             persImage.removeFromParent()
-            persImage = SKSpriteNode(imageNamed: "")
+            
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 100{
+            nameImageGirl = "hug1"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 150 && 100 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "hug2"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 200 && 150 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "hug3"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 250 && 200 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "hug4"
+            }
+            if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 300 && 250 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+            nameImageGirl = "hug5"
+            }
+            persImage = SKSpriteNode(imageNamed: nameImageGirl)
+            persImage.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height / 3.5)
+            persImage.setScale(0.75)
+            self.addChild(persImage)
+            
+            
             
             hugButton.removeFromParent()
             
@@ -342,6 +440,30 @@ class GameScene: SKScene {
         happyLabel.text = "Уровень счастья: \(UserDefaults.standard.integer(forKey: "attantion") + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"))"
         
         messagePers.text = "Ай! Больно!"
+        
+        var nameImageGirl = "figth1"
+        
+        persImage.removeFromParent()
+        
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 100{
+        nameImageGirl = "figth1"
+        }
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 150 && 100 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+        nameImageGirl = "figth2"
+        }
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 200 && 150 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+        nameImageGirl = "figth3"
+        }
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 250 && 200 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+        nameImageGirl = "figth4"
+        }
+        if (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry") < 300 && 250 <= (UserDefaults.standard.integer(forKey: "attantion")) + UserDefaults.standard.integer(forKey: "hungry") - UserDefaults.standard.integer(forKey: "angry"){
+        nameImageGirl = "figth5"
+        }
+        persImage = SKSpriteNode(imageNamed: nameImageGirl)
+        persImage.position = CGPoint(x: self.frame.width / 3.5, y: self.frame.height / 3.5)
+        persImage.setScale(0.75)
+        self.addChild(persImage)
         
         self.run(SKAction.playSoundFileNamed("suffer.mp3", waitForCompletion: false))
     }
